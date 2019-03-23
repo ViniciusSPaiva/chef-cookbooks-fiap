@@ -12,7 +12,6 @@
 cookbook_file "/tmp/ssh-port.sh" do
   source "ssh-port.sh"
   mode 0755
-  elevated true
 end
 
 execute "Alterar porta SSH" do
