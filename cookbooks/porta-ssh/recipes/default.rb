@@ -4,7 +4,7 @@
 #
 # Copyright:: 2019, The Authors, All Rights Reserved.
 
-node.force_override['ssh-port'] = '45500'
+node.force_override['ssh-port'] = '22'
 node.force_override['new-ssh-port'] = '45000'
 
 
