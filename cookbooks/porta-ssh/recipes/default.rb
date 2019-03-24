@@ -4,17 +4,11 @@
 #
 # Copyright:: 2019, The Authors, All Rights Reserved.
 
-#node.force_override['ssh-port'] = '22'
-#node.force_override['new-ssh-port'] = '44500'
+node.force_override['ssh-port'] = '45500'
+node.force_override['new-ssh-port'] = '45000'
 
-
-
-cookbook_file "/tmp/ssh-port.sh" do
-  source "ssh-port.sh"
-  mode 0755
-end
 
 execute "Alterar porta SSH" do
-  command "sh /tmp/ssh-port.sh"
+  command "sed -i 's/#{node['ssh-port']}/#{node['new-ssh-port']}/g' /etc/ssh/sshd_config && service ssh restart"
+  action :run
 end
-
